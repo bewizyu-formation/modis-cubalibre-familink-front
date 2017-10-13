@@ -1,0 +1,13 @@
+<label> Mon groupe </label>
+
+<br>
+
+<mat-form-field>
+    <input matInput placeholder="Nom du groupe"
+           [formControl]="groupName"
+           [(ngModel)]="group.name"
+           required>
+    <mat-error *ngIf="groupName.invalid">{{getErrorMessage()}}</mat-error>
+</mat-form-field>
+
+<button mat-button [disabled]="groupName.invalid" (click)="handleCreateGroup()"> Créer mon groupe</button>
