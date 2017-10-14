@@ -1,0 +1,8 @@
+.title {
+  font-size: 45px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: center;
+}
