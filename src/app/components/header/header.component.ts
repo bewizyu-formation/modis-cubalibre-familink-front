@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/User';
-import { Contact } from '../../models/Contact';
-import { Profil } from '../../models/Profil';
+import {Component, OnInit} from '@angular/core';
+import {User} from '../../models/User';
 
 @Component({
   selector: 'app-header',
@@ -15,8 +13,10 @@ export class HeaderComponent implements OnInit {
   user:User;
   borderTheme:string;
   ngOnInit() {
-    this.user = new User('angelo67170@gmail.com','546465sdfgsd56',new Contact('Basso','Angelo',new Profil(1,'FOU','#FF0022'),'0601795131'));
-    this.borderTheme = `solid ${this.user.contact.profil.color} 2px`;
+    // this.user = new User('angelo67170@gmail.com','546465sdfgsd56',new Contact('Basso','Angelo',new Profil(1,'FOU','#FF0022'),'0601795131'));
+    if (this.user) {
+      this.borderTheme = `solid ${this.user.contact.profil.color} 2px`;
+    }
   }
 
 }

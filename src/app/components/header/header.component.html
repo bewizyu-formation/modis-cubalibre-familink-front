@@ -2,7 +2,10 @@
   <span class="header-spacer"></span>
   <span class="header-title">Familink</span>
   <span class="header-spacer"></span>
-    <img class="header-pp" [matMenuTriggerFor]="menu" [src]="user.contact.gravatar" [style.border] ="borderTheme"/>
+  <div class="user" *ngIf="user">
+    <span>{{user.contact.getFullName()}}</span>
+    <img class="header-pp" [matMenuTriggerFor]="menu" [src]="user?.contact.gravatar" [style.border]="borderTheme"/>
+  </div>
 </mat-toolbar>
 
 <mat-menu #menu="matMenu" [overlapTrigger]="false">
