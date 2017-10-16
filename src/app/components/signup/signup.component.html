@@ -1,3 +1,103 @@
-<p>
-  signup works!
-</p>
+<div class="ontainer">
+  <h1 class="form">CREER UN UTILISATEUR</h1>
+  <form class="form__user" action="">
+    <mat-form-field class="form__user--width">
+      <input matInput placeholder="Inserez votre email" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <table class="form__user--width" cellspacing="20">
+      <tr>
+        <td>
+          <mat-form-field class="form__user--width">
+            <input matInput placeholder="Mot de passe" [type]="hide ? 'password' : 'text'"
+                   [formControl]="passwordGroup.get('password')" required>
+            <mat-error *ngIf="passwordGroup.get('password').invalid">{{ getPasswordErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="form__user--width">
+            <input matInput placeholder="Confirmer le mot de passe" [type]="hide? 'password' : 'text'"
+                   [formControl]="passwordGroup.get('passwordConfirm')" required>
+            <mat-error *ngIf="passwordGroup.invalid">{{ getPasswordMatchErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+        <td><mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon></td>
+      </tr>
+    </table>
+
+    <table class="form__user--width" cellspacing="20">
+      <tr>
+        <td>
+          <mat-form-field class="form__user--width">
+            <input matInput placeholder="Nom" [formControl]="name" name="name" required>
+            <mat-error *ngIf="name.invalid">{{getNameErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="form__user--width">
+            <input matInput placeholder="Prénom" [formControl]="firstName" name="firstName" required>
+            <mat-error *ngIf="firstName.invalid">{{getFirstNameErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+
+    <table class="form__user--width" cellspacing="20">
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="Gravatar" [formControl]="gravatar" name="gravatar"/>
+            <mat-error *ngIf="gravatar.invalid">{{ getGravatarErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="form__user--width">
+            <input type="tel" matInput placeholder="Téléphone" [formControl]="phone" name="phone" required>
+            <mat-icon matSuffix>phone</mat-icon>
+            <mat-error *ngIf="phone.invalid">{{getPhoneErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+
+<div class="form__profil">
+    <mat-form-field>
+      <mat-select placeholder="Votre profil" [(ngModel)]="selectedValue" name="profil" required>
+        <mat-option *ngFor="let profil of profils" [value]="profil.id">
+          {{profil.type}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="profil.invalid">{{getProfilErrorMessage()}}</mat-error>
+    </mat-form-field>
+</div>
+    <p>
+      <mat-form-field class="form__user--width">
+        <textarea matInput placeholder="Adresse"></textarea>
+      </mat-form-field>
+    </p>
+    <table class="form__user--width" cellspacing="20">
+      <tr>
+        <td>
+          <mat-form-field class="form__user--width">
+            <input matInput placeholder="Ville">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="form__user--width">
+            <input matInput #postalCode maxlength="5" placeholder="Code Postal">
+            <mat-hint align="end">{{postalCode.value.length}} / {{postalCode.maxLength}}</mat-hint>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <div class="">
+      <div class="">
+        <button type="submit" mat-raised-button color="primary">Valider</button>
+      </div>
+      <div class="">
+        <button mat-raised-button>Annuler</button>
+      </div>
+    </div>
+  </form>
+</div>

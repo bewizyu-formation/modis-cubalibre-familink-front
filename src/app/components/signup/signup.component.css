@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top : 50px;
+  width: 100%;
+}
+.form{
+  text-align: center;
+  color: #9F9AA4;
+}
+.form__user {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em;
+  border: 1px solid #E3E3E3;
+  border-radius: 1em;
+}
+.form__user--width{
+  width: 100%;
+}
+.form__profil{
+  text-align: center;
+}
+

@@ -8,9 +8,13 @@ import { ROUTES } from './app.routes';
 
 import { SignupComponent } from './components/signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule, MatMenuModule, MatToolbarModule,MatIconRegistry } from '@angular/material';
+import {
+  MatIconModule, MatMenuModule, MatToolbarModule, MatIconRegistry, MatInputModule, MatFormFieldModule,
+  MatNativeDateModule, MatSelectModule, MatButtonModule
+} from '@angular/material';
 import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     SignupComponent,
     HeaderComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,14 @@ import { HttpClientModule } from '@angular/common/http';
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
+    MatInputModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatButtonModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
