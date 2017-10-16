@@ -3,7 +3,9 @@
 ## Application front Family Link
 
 ### Technologies
-  * Angular 1.4.4
+  * Angular/Cli 1.4.4
+  * Angular 4.4.5
+  * Material Angular 2.0.0-beta.12
   * HTML 5
   * CSS 3
   * JavaScript ES5

@@ -1,0 +1,24 @@
+<mat-toolbar color="primary">
+  <span class="header-spacer"></span>
+  <span class="header-title">Familink</span>
+  <span class="header-spacer"></span>
+  <div class="user" *ngIf="user">
+    <span>{{user.contact.getFullName()}}</span>
+    <img class="header-pp" [matMenuTriggerFor]="menu" [src]="user?.contact.gravatar" [style.border]="borderTheme"/>
+  </div>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu" [overlapTrigger]="false">
+  <button mat-menu-item>
+    <mat-icon>settings</mat-icon>
+    <span>Profil</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>swap_horiz</mat-icon>
+    <span>Groupes</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Déconnexion</span>
+  </button>
+</mat-menu>

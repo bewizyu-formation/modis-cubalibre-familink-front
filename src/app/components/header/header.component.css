@@ -1,0 +1,18 @@
+.toolbar{display: flex;
+}
+.header-spacer {
+  flex: 1 1 auto;
+}
+.header-title{
+  font-size: 32px;
+}
+
+.user {
+  display: flex;
+  align-content: center;
+}
+.header-pp{
+  width: 50px;
+  height: 50px;
+  margin: 0 0;
+}
