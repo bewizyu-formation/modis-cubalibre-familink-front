@@ -25,6 +25,7 @@
     "@angular/router": "^4.4.5",
     "core-js": "^2.4.1",
     "rxjs": "^5.4.2",
+    "ts-md5": "^1.2.2",
     "tslint-config-airbnb": "^5.3.0",
     "zone.js": "^0.8.14"
   },
