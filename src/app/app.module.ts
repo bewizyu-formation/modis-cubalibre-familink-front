@@ -21,6 +21,8 @@ import {HeaderComponent} from './components/header/header.component';
 import {HttpClientModule} from '@angular/common/http';
 import {SignInComponent} from './components/sign-in/sign-in.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {SigninApiService} from "./services/api/signin-api.service";
+import {SigninService} from "./services/business/signin.service";
 
 
 @NgModule({
@@ -45,11 +47,11 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [SigninApiService, SigninService,],
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(matIconRegistry : MatIconRegistry, domSanitizer : DomSanitizer) {
+  constructor(matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer) {
     matIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('./assets/mdi.svg'));
   }
 }

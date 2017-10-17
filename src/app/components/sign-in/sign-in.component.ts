@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Md5} from "ts-md5/dist/md5";
+import {SigninService} from "../../services/business/signin.service";
 
 @Component({
   selector: 'app-sign-in',
@@ -12,10 +13,8 @@ export class SignInComponent implements OnInit {
   emailCtrl: FormControl;
   passwordCtrl: FormControl;
   userForm: FormGroup;
-  email: string;
-  pwd: string;
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, private service: SigninService) {
 
     this.emailCtrl = fb.control('', [Validators.required]);
     this.passwordCtrl = fb.control('', [Validators.required]);
@@ -27,8 +26,9 @@ export class SignInComponent implements OnInit {
   }
 
   connect() {
-    console.log(this.emailCtrl.value);
-    console.log(Md5.hashStr(this.passwordCtrl.value).toString())
+    this.service.signin(this.emailCtrl.value, Md5.hashStr(this.passwordCtrl.value).toString()).then(token => {
+      console.log(token);
+    })
   }
 
   getEmailErrorMessage() {
