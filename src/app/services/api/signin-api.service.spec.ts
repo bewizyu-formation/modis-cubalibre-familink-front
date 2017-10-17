@@ -1,11 +1,11 @@
-import {inject, TestBed} from '@angular/core/testing';
+import { inject, TestBed } from '@angular/core/testing';
 
-import {SigninApiService} from './signin-api.service';
+import { SigninApiService } from './signin-api.service';
 
 describe('SigninApiService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SigninApiService]
+      providers: [SigninApiService],
     });
   });
 
