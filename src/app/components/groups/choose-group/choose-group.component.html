@@ -1,4 +1,4 @@
-<app-create-group *ngIf="!myGroup" (newGroup)="addGroupToList($event)"></app-create-group>
+<app-create-group *ngIf="!myGroup" (createGroupEvent)="createGroup($event)"></app-create-group>
 <app-group *ngIf="myGroup" [group]="myGroup"></app-group>
 
 <br>

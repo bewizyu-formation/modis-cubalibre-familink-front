@@ -53,7 +53,6 @@ import { GroupBusinessService } from "./services/business/group-business.service
   providers: [
     GroupApiService,
     GroupBusinessService,
-    //{ provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent],
 })
