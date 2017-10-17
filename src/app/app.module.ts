@@ -9,12 +9,21 @@ import { ROUTES } from './app.routes';
 import { SignupComponent } from './components/signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MatIconModule, MatMenuModule, MatToolbarModule, MatIconRegistry, MatInputModule, MatFormFieldModule,
-  MatNativeDateModule, MatSelectModule, MatButtonModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatIconRegistry,
+  MatInputModule,
+  MatMenuModule,
+  MatToolbarModule,
+  MatSelectModule,
 } from '@angular/material';
 import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SigninApiService } from './services/api/signin-api.service';
+import { SigninService } from './services/business/signin.service';
 
 
 @NgModule({
@@ -23,7 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     SignupComponent,
     HeaderComponent,
-
+    SignInComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,17 +44,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatNativeDateModule,
     MatButtonModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [SigninApiService, SigninService],
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(matIconRegistry : MatIconRegistry, domSanitizer : DomSanitizer) {
+  constructor(matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer) {
     matIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('./assets/mdi.svg'));
   }
 }
