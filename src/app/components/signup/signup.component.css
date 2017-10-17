@@ -23,4 +23,9 @@
 .form__profil{
   text-align: center;
 }
-
+.form__button{
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}

@@ -10,7 +10,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatIconModule, MatMenuModule, MatToolbarModule, MatIconRegistry, MatInputModule, MatFormFieldModule,
-  MatNativeDateModule, MatSelectModule, MatButtonModule
+  MatNativeDateModule, MatSelectModule, MatButtonModule,
 } from '@angular/material';
 import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/User';
-import { Profil } from '../../models/Profil';
 import { Validators, FormControl, FormGroup } from '@angular/forms';
 import { PWD_VALIDATOR, passwordMatchValidator } from '../../validators/passwordValidator';
 import { GRAVATAR_VALIDATOR } from '../../validators/gravatarValidator';
+import { Router } from '@angular/router';
+import { PATH_HOME } from '../../app.routes';
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +12,7 @@ import { GRAVATAR_VALIDATOR } from '../../validators/gravatarValidator';
 })
 export class SignupComponent implements OnInit {
 
- // profils: Array<Profil> = [];
+  // profils: Array<Profil> = [];
   selectedValue: string;
   hide = true;
 
@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
   phone = new FormControl('', [Validators.required]);
   gravatar = new FormControl('', [Validators.pattern(GRAVATAR_VALIDATOR)]);
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   /* *************************** MESSAGE D'ERREURS ********************/
@@ -65,10 +65,14 @@ export class SignupComponent implements OnInit {
   getPhoneErrorMessage() {
     return this.phone.hasError('required') ? 'Saisir un numéro de téléphone' : '';
   }
-  getGravatarErrorMessage(){
-    return this.gravatar.hasError('pattern') ? 'Lien incorrect' : '' ;
+
+  getGravatarErrorMessage() {
+    return this.gravatar.hasError('pattern') ? 'Lien incorrect' : '';
   }
 
+  navigateToHome() {
+    this.router.navigate([PATH_HOME]);
+  }
 
   /* profils = [
      {value: '0', viewValue: 'SENIOR'},
@@ -77,6 +81,8 @@ export class SignupComponent implements OnInit {
    ];
  */
   ngOnInit() {
-
+    this.router.events.subscribe((event) => {
+      console.log('EVENTS', event);
+    });
   }
 }
