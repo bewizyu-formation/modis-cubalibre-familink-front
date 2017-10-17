@@ -6,7 +6,7 @@ import { Contact } from '../../models/Contact';
 
 
 const API_SRV_URL = 'http://localhost';
-const API_SRV_PORT = 8081;
+const API_SRV_PORT = 8080;
 const API_BASE_URI = 'familink-api/mvc';
 const API_SRV_ROOT_USER = 'user';
 const API_SRV_ROOT_CONTACT = 'contact';
