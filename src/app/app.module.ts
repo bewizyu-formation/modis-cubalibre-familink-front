@@ -24,6 +24,8 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SigninApiService } from './services/api/signin-api.service';
 import { SigninService } from './services/business/signin.service';
+import { SignupService } from './services/business/signup.service';
+import { SignupApiService } from './services/api/signup-api.service';
 
 
 @NgModule({
@@ -49,7 +51,7 @@ import { SigninService } from './services/business/signin.service';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [SigninApiService, SigninService],
+  providers: [SigninApiService, SigninService,SignupService,SignupApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {

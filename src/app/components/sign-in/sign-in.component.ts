@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Md5} from "ts-md5/dist/md5";
-import {SigninService} from "../../services/business/signin.service";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Md5 } from 'ts-md5/dist/md5';
+import { SigninService } from '../../services/business/signin.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -29,7 +29,7 @@ export class SignInComponent implements OnInit {
     this.service.signin(this.emailCtrl.value, Md5.hashStr(this.passwordCtrl.value).toString()).then(object => {
       localStorage.setItem('authToken', object.token);
       console.log(localStorage.getItem('authToken'));
-    })
+    });
   }
 
   getEmailErrorMessage() {

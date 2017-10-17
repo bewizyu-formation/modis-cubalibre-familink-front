@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
-import { PWD_VALIDATOR, passwordMatchValidator } from '../../validators/passwordValidator';
+import { PWD_VALIDATOR } from '../../validators/passwordValidator';
 import { GRAVATAR_VALIDATOR } from '../../validators/gravatarValidator';
 import { Md5 } from 'ts-md5/dist/md5';
 import { EMAIL_VALIDATOR } from '../../validators/emailValidator';
 import { Router } from '@angular/router';
 import { Contact } from '../../models/Contact';
 import { User } from '../../models/User';
+import { SignupService } from '../../services/business/signup.service';
+import { Profil } from '../../models/Profil';
 
 
 @Component({
@@ -16,7 +18,6 @@ import { User } from '../../models/User';
 })
 export class SignupComponent implements OnInit {
 
-  // profils: Array<Profil> = [];
   selectedValue: string;
   hide = true;
 
@@ -35,8 +36,8 @@ export class SignupComponent implements OnInit {
   private phoneCtrl: FormControl;
   userForm: FormGroup;
 
-  constructor(fb: FormBuilder, public router: Router) {
-// Création des contrôles
+  constructor(fb: FormBuilder, public router: Router,private service:SignupService) {
+
     this.emailCtrl = fb.control('', [Validators.required, Validators.pattern(EMAIL_VALIDATOR), Validators.email]);
     this.passwordCtrl = fb.control('', [Validators.required, Validators.pattern(PWD_VALIDATOR)]);
     this.confirmPasswordCtrl = fb.control('', [Validators.required, Validators.pattern(PWD_VALIDATOR)]);
@@ -64,28 +65,14 @@ export class SignupComponent implements OnInit {
       phone: this.phoneCtrl,
     });
   }
-
-  createUser(value) {
-    console.log(this.userForm.value);
-/*
-    let contact = new Contact(
-      this.userForm.value.name,
-      this.userForm.value.firstName,
-      null,
-      this.userForm.value.phone,
-      this.userForm.value.address,
-      this.userForm.value.zipcode,
-      this.userForm.value.city;
-      this.userForm.value.gravatar,
-      new User (
-      this.userForm.value.email,
-      this.userForm.value.password
-      )
-      )
-*/
+  userToInsert:User;
+  createUser() {
+    this.service.createContact(this.userForm.value.firstName,this.userForm.value.name,{ id:parseInt(this.userForm.value.profil,0) },this.userForm.value.phone).then(contact => {
+      this.service.createUser(this.userForm.value.email,Md5.hashStr(this.userForm.value.password).toString(),contact).then(user=>{
+        console.log(user);
+      })
+    });
   }
-
-
 
   /* **************************** NGONINIT *********************/
 

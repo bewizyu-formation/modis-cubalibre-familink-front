@@ -2,7 +2,7 @@
 
   <div class="form">
     <h1 class="form__title">créer un utilisateur</h1>
-    <form class="form__user" (ngSubmit)="createUser()" [formGroup]="userForm">
+    <form class="form__user"  [formGroup]="userForm">
       <mat-form-field class="form__user--width">
         <input matInput placeholder="Inserez votre email" formControlName="email" required>
         <mat-error *ngIf="userForm.get('email').invalid">{{getEmailErrorMessage()}}</mat-error>
@@ -97,7 +97,7 @@
       </table>
       <div class="">
         <div class="form__button">
-          <button type="submit" mat-raised-button color="primary">Valider</button>
+          (<button type="submit" mat-raised-button color="primary" (click)="createUser()">)Valider</button>
           <button mat-raised-button (click)="navigateToHome()">Annuler</button>
         </div>
       </div>
