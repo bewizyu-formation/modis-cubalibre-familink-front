@@ -26,8 +26,9 @@ export class SignInComponent implements OnInit {
   }
 
   connect() {
-    this.service.signin(this.emailCtrl.value, Md5.hashStr(this.passwordCtrl.value).toString()).then(token => {
-      console.log(token);
+    this.service.signin(this.emailCtrl.value, Md5.hashStr(this.passwordCtrl.value).toString()).then(object => {
+      localStorage.setItem('authToken', object.token);
+      console.log(localStorage.getItem('authToken'));
     })
   }
 

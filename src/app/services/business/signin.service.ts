@@ -10,7 +10,6 @@ export class SigninService {
   signin(email: string, encPwd: string): Promise<any> {
     return new Promise(resolve => {
       this.api.signin(email, encPwd).then(token => {
-        console.log(token);
         resolve(token)
       }).catch(e => {
         console.log(e.message)
