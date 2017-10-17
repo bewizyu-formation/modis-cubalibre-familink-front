@@ -1,0 +1,50 @@
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.form__title{
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: lighter;
+  margin: 50px 10px 20px 10px;
+  color:#333;
+  display: flex;
+  align-items: center;
+}
+
+.form__title::after, .form__title::before{
+  content: "";
+  height: 2px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  flex: auto;
+}
+.form__title::before {
+  margin-right: 5vw;
+}
+.form__title::after{
+  margin-left: 5vw;
+}
+
+.form__user {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em;
+  border: 1px solid #E3E3E3;
+  border-radius: 1em;
+}
+.form__user--width{
+  width: 100%;
+}
+.form__profil{
+  text-align: center;
+}
+.form__button{
+  margin-top: 30px;
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+}
