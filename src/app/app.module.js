@@ -9,10 +9,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var platform_browser_1 = require("@angular/platform-browser");
 var core_1 = require("@angular/core");
 var app_component_1 = require("./app.component");
-var home_component_1 = require("./home/home.component");
+var home_component_1 = require("./home/home.components");
 var router_1 = require("@angular/router");
 var app_routes_1 = require("./app.routes");
-var signup_component_1 = require("./signup/signup.component");
+var signup_component_1 = require("./signup/signup.components");
 var AppModule = (function () {
     function AppModule() {
     }
