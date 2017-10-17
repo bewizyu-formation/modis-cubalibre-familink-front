@@ -1,0 +1,21 @@
+<mat-form-field>
+  <input matInput placeholder="Email" [formControl]="emailCtrl" required>
+  <mat-error *ngIf="emailCtrl.invalid">{{getEmailErrorMessage()}}</mat-error>
+
+</mat-form-field>
+
+<br>
+
+<mat-form-field>
+  <input matInput type="password" placeholder="Password" [formControl]="passwordCtrl" required>
+  <mat-error *ngIf="passwordCtrl.invalid">{{getPassErrorMessage()}}</mat-error>
+</mat-form-field>
+
+<div>
+  <span> <a href="#">Créer un compte </a></span>
+  <span>  | <a href="#"> Mot de passe oublié</a></span>
+</div>
+
+<br>
+
+<button mat-button [(disabled)]="emailCtrl.invalid && passwordCtrl.invalid" (click)="connect()"> Valider</button>
