@@ -1,3 +1,6 @@
+body {
+  font-family: "Open sans", Helvetica, Arial, sans-serif;
+}
 .container {
   display: flex;
   justify-content: center;
@@ -6,8 +9,33 @@
 }
 .form{
   text-align: center;
-  color: #9F9AA4;
+  color: #ccc;
 }
+.form__title{
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: lighter;
+  margin: 50px 10px 0 10px;
+  font-size: 40px;
+  color:#333;
+  display: flex;
+  align-items: center;
+}
+
+.form__title::after , .form__title::before{
+  content: "";
+  height: 5px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  flex: auto;
+}
+.form__title::before {
+  margin-right: 5vw;
+}
+.form__title::after{
+  margin-left: 5vw;
+}
+
 .form__user {
   min-width: 150px;
   max-width: 500px;

@@ -1,1 +1,1 @@
-export const EMAIL_VALIDATOR = '^([a-zA-z0-9])+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$';
+export const EMAIL_VALIDATOR = '^[a-z0-9._-]+@[a-z0-9._-]{2,}\\.[a-z]{2,4}$';
