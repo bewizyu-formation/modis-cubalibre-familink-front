@@ -5,7 +5,7 @@ import { GroupBusinessService } from './group-business.service';
 describe('GroupBusinessService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [GroupBusinessService]
+      providers: [GroupBusinessService],
     });
   });
 

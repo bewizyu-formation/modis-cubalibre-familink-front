@@ -1,7 +1,7 @@
-import {Routes} from '@angular/router';
-import {HomeComponent} from './components/home/home.component';
-import {SignInComponent} from "./components/sign-in/sign-in.component";
-import {ChooseGroupComponent} from "./components/groups/choose-group/choose-group.component";
+import { Routes } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { ChooseGroupComponent } from './components/groups/choose-group/choose-group.component';
 
 export const PATH_HOME = 'home';
 export const PATH_SIGNIN = 'signin';

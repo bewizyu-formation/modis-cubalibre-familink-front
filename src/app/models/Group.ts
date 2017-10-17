@@ -1,7 +1,7 @@
-import {User} from "./User";
+import { User } from './User';
 
 export class Group {
 
-    constructor(public name: string, public owner: User) {
-    }
+  constructor(public name: string, public owner: User) {
+  }
 }

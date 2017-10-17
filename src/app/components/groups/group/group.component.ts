@@ -1,10 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Group} from "../../../models/Group";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Group } from '../../../models/Group';
 
 @Component({
   selector: 'app-group',
   templateUrl: './group.component.html',
-  styleUrls: ['./group.component.css']
+  styleUrls: ['./group.component.css'],
 })
 export class GroupComponent implements OnInit {
 
@@ -20,6 +20,6 @@ export class GroupComponent implements OnInit {
   }
 
   selectGroup() {
-      this.groupSelected.emit(this.group);
+    this.groupSelected.emit(this.group);
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {GroupApiService} from "../api/group-api.service";
-import {Group} from "../../models/Group";
+import { GroupApiService } from '../api/group-api.service';
+import { Group } from '../../models/Group';
 
 @Injectable()
 export class GroupBusinessService {
@@ -16,15 +16,15 @@ export class GroupBusinessService {
           .then(
             (apiGroup) => {
               this.groups.push(apiGroup);
-              resolve ( this.groups );
-            }
+              resolve (this.groups);
+            },
           )
           .catch(
             (message) => {
-              reject ( 'SERVICE - Impossible to POST !!' );
-            }
+              reject ('SERVICE - Impossible to POST !!');
+            },
           );
-      }
+      },
     );
   }
 

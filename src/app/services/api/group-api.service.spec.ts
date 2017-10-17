@@ -5,7 +5,7 @@ import { GroupApiService } from './group-api.service';
 describe('GroupApiService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [GroupApiService]
+      providers: [GroupApiService],
     });
   });
 

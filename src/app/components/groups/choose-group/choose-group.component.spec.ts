@@ -8,7 +8,7 @@ describe('ChooseGroupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChooseGroupComponent ]
+      declarations: [ChooseGroupComponent],
     })
     .compileComponents();
   }));

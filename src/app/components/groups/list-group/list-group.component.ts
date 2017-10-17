@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Group} from "../../../models/Group";
+import { Group } from '../../../models/Group';
 
 @Component({
   selector: 'app-list-group',
   templateUrl: './list-group.component.html',
-  styleUrls: ['./list-group.component.css']
+  styleUrls: ['./list-group.component.css'],
 })
 export class ListGroupComponent implements OnInit {
 
@@ -13,15 +13,15 @@ export class ListGroupComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-      this.groups = [
-          new Group('Nom de mon groupe', null),
-          new Group('Nom de mon groupe', null),
-          new Group('Nom de mon groupe', null),
-      ];
+    this.groups = [
+      new Group('Group 1', null),
+      new Group('Group 2', null),
+      new Group('Group 3', null),
+    ];
   }
 
   handleGroupSelected(group): void {
-      console.log(' Selected Group : ', group.toString());
+    console.log(' Selected Group : ', group.toString());
   }
 
 }

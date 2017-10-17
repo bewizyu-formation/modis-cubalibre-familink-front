@@ -1,11 +1,11 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormControl, Validators} from "@angular/forms";
-import {Group} from "../../../models/Group";
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { Group } from '../../../models/Group';
 
 @Component({
   selector: 'app-create-group',
   templateUrl: './create-group.component.html',
-  styleUrls: ['./create-group.component.css']
+  styleUrls: ['./create-group.component.css'],
 })
 export class CreateGroupComponent implements OnInit {
   groupName = new FormControl('', [Validators.required]);
