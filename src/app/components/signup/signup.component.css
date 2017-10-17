@@ -1,11 +1,7 @@
-body {
-  font-family: "Open sans", Helvetica, Arial, sans-serif;
-}
 .container {
-  display: flex;
-  justify-content: center;
-  margin-top : 50px;
-  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 .form{
   text-align: center;
@@ -15,16 +11,15 @@ body {
   text-transform: uppercase;
   text-align: center;
   font-weight: lighter;
-  margin: 50px 10px 0 10px;
-  font-size: 40px;
+  margin: 50px 10px 20px 10px;
   color:#333;
   display: flex;
   align-items: center;
 }
 
-.form__title::after , .form__title::before{
+.form__title::after, .form__title::before{
   content: "";
-  height: 5px;
+  height: 2px;
   border-bottom: 1px solid #ccc;
   border-top: 1px solid #ccc;
   flex: auto;

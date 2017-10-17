@@ -5,8 +5,8 @@ import { GRAVATAR_VALIDATOR } from '../../validators/gravatarValidator';
 import { Md5 } from 'ts-md5/dist/md5';
 import { EMAIL_VALIDATOR } from '../../validators/emailValidator';
 import { Router } from '@angular/router';
-import { PATH_HOME } from '../../app.routes';
 import { Contact } from '../../models/Contact';
+import { User } from '../../models/User';
 
 
 @Component({
@@ -67,17 +67,24 @@ export class SignupComponent implements OnInit {
 
   createUser(value) {
     console.log(this.userForm.value);
-  /*  const contact = new Contact(
+/*
+    let contact = new Contact(
       this.userForm.value.name,
       this.userForm.value.firstName,
       null,
       this.userForm.value.phone,
-      this.userForm.value.gravatar,
       this.userForm.value.address,
       this.userForm.value.zipcode,
       this.userForm.value.city;
+      this.userForm.value.gravatar,
+      new User (
+      this.userForm.value.email,
+      this.userForm.value.password
+      )
+      )
+*/
 
-  )*/
+
   }
 
   /* **************************** NGONINIT *********************/
@@ -127,7 +134,7 @@ export class SignupComponent implements OnInit {
 
   /* ************************* NAVIGATE **************************/
   navigateToHome() {
-    this.router.navigate([PATH_HOME]);
+    this.router.navigate(['home']);
   }
 
 
