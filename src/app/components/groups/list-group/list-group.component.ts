@@ -14,9 +14,9 @@ export class ListGroupComponent implements OnInit {
 
   ngOnInit() {
       this.groups = [
-          new Group('Nom de mon groupe'),
-          new Group('Nom de mon groupe'),
-          new Group('Nom de mon groupe'),
+          new Group('Nom de mon groupe', null),
+          new Group('Nom de mon groupe', null),
+          new Group('Nom de mon groupe', null),
       ];
   }
 

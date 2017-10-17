@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Group} from "../../../models/Group";
 
 @Component({
   selector: 'app-choose-group',
@@ -7,6 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChooseGroupComponent implements OnInit {
 
+    myGroup: Group = new Group('new Group', null);
+
     ngOnInit() {
+    }
+
+    addGroupToList(event) {
+
     }
 }

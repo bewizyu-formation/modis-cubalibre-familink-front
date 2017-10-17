@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from "@angular/forms";
-import { Group } from "../../../models/Group";
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {FormControl, Validators} from "@angular/forms";
+import {Group} from "../../../models/Group";
+import {GroupBusinessService} from "../../../services/business/group-business.service";
+import {reject} from "q";
 
 @Component({
   selector: 'app-create-group',
@@ -8,24 +10,44 @@ import { Group } from "../../../models/Group";
   styleUrls: ['./create-group.component.css']
 })
 export class CreateGroupComponent implements OnInit {
-    groupName = new FormControl('', [Validators.required]);
+  groupName = new FormControl('', [Validators.required]);
 
-    group: Group = new Group();
+  group: Group = new Group('', null);
 
-    constructor() {
+  @Output()
+  newGroup: EventEmitter<Group> = new EventEmitter<Group>();
+
+  constructor(private groupBusinessService: GroupBusinessService) {
+  }
+
+  ngOnInit() {
+  }
+
+  handleCreateGroup() {
+    console.log('CREATE GROUP', this.group);
+
+    if (this.group.name !== null) {
+      this.groupBusinessService.postGroup(this.group)
+        .then(
+          (groups) => {
+            console.log('AAAAAAAAAAAAA groups', groups);
+            // let isMyGro1upExist: boolean = groups.filter(group => {
+            //     return group.owner.id
+            // });
+            // if(groups.filter()){
+            //
+            // }
+          }
+        )
+        .catch(
+          (message) => {
+            reject ( 'SERVICE - Impossible to POST !!' );
+          }
+        );
     }
+  }
 
-    ngOnInit() {
-    }
-
-    handleCreateGroup() {
-        console.log('CREER', this.group);
-    }
-
-    getErrorMessage() {
-        return this.groupName.hasError('required') ? 'Vous devez rentrer une valeur !' : '';
-    }
-
-
-
+  getErrorMessage() {
+    return this.groupName.hasError('required') ? 'Vous devez rentrer une valeur !' : '';
+  }
 }

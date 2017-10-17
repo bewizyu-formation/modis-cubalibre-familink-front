@@ -10,15 +10,18 @@ import { SignupComponent } from './components/signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule, MatMenuModule, MatToolbarModule,MatIconRegistry } from '@angular/material';
 import { HeaderComponent } from './components/header/header.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {MatFormFieldModule, MatInputModule, MatButtonModule, MatListModule, MatCardModule} from '@angular/material';
-import {ChooseGroupComponent} from './components/groups/choose-group/choose-group.component';
-import {CreateGroupComponent} from './components/groups/create-group/create-group.component';
-import {ListGroupComponent} from './components/groups/list-group/list-group.component';
-import {GroupComponent} from './components/groups/group/group.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatFormFieldModule, MatInputModule, MatButtonModule, MatListModule, MatCardModule } from '@angular/material';
+import { ChooseGroupComponent } from './components/groups/choose-group/choose-group.component';
+import { CreateGroupComponent } from './components/groups/create-group/create-group.component';
+import { ListGroupComponent } from './components/groups/list-group/list-group.component';
+import { GroupComponent } from './components/groups/group/group.component';
 
+import { GroupApiService } from "./services/api/group-api.service";
+import { GroupBusinessService } from "./services/business/group-business.service";
+//import { HeaderInterceptorService } from "./services/interceptor/header.service";
 
 @NgModule({
   declarations: [
@@ -47,7 +50,11 @@ import {GroupComponent} from './components/groups/group/group.component';
     MatListModule,
     MatCardModule,
   ],
-  providers: [],
+  providers: [
+    GroupApiService,
+    GroupBusinessService,
+    //{ provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
