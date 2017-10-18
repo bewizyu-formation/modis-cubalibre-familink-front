@@ -1,0 +1,14 @@
+<label> Autres groupes </label>
+
+<br>
+<br>
+
+<mat-list>
+    <mat-list-item *ngFor="let group of groups">
+        <app-group
+          [group]="group"
+          (groupSelected)="handleGroupSelected($event)">
+        </app-group>
+    </mat-list-item>
+</mat-list>
+
