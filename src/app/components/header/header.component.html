@@ -3,7 +3,7 @@
   <span class="header-title">Familink</span>
   <span class="header-spacer"></span>
   <div class="user" *ngIf="user">
-    <span>{{user.contact.getFullName()}}</span>
+    <span>{{user.contact.firstName}} {{user.contact.lastName}}</span>
     <img class="header-pp" [matMenuTriggerFor]="menu" [src]="user?.contact.gravatar" [style.border]="borderTheme"/>
   </div>
 </mat-toolbar>
@@ -17,7 +17,7 @@
     <mat-icon>swap_horiz</mat-icon>
     <span>Groupes</span>
   </button>
-  <button mat-menu-item>
+  <button mat-menu-item (click)="logout()">
     <mat-icon>exit_to_app</mat-icon>
     <span>Déconnexion</span>
   </button>
