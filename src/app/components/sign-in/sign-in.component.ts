@@ -28,9 +28,17 @@ export class SignInComponent implements OnInit {
   connect() {
     this.service.signin(this.emailCtrl.value, Md5.hashStr(this.passwordCtrl.value).toString()).then(object => {
       localStorage.setItem('authToken', object.token);
-      console.log(localStorage.getItem('authToken'));
+      let decodeToken = atob(object.token);
+      localStorage.setItem('userId', decodeToken.substring(0, decodeToken.indexOf('-')));
     })
   }
+
+  keyEvent(event) {
+    if (event.keyCode === 13) {
+      this.connect();
+    }
+  }
+
 
   getEmailErrorMessage() {
     return this.emailCtrl.hasError('required') ? 'Vous devez rentrer un email !' : '';
