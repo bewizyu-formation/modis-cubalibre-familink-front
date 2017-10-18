@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/User';
+import {Component, OnInit} from '@angular/core';
+import {User} from '../../models/User';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -8,12 +9,16 @@ import { User } from '../../models/User';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() {
+  constructor(private router: Router) {
   }
   user:User;
   borderTheme:string;
+
+  logout() {
+    this.router.navigate(['']);
+  }
   ngOnInit() {
-    // this.user = new User('angelo67170@gmail.com','546465sdfgsd56',new Contact('Basso','Angelo',new Profil(1,'FOU','#FF0022'),'0601795131'));
+    this.user = JSON.parse(localStorage.getItem('user'));
     if (this.user) {
       this.borderTheme = `solid ${this.user.contact.profil.color} 2px`;
     }

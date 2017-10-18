@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Group } from '../../../models/Group';
+import {Component, Input, OnInit} from '@angular/core';
+import {Group} from '../../../models/Group';
 
 @Component({
   selector: 'app-list-group',
@@ -7,8 +7,8 @@ import { Group } from '../../../models/Group';
   styleUrls: ['./list-group.component.css'],
 })
 export class ListGroupComponent implements OnInit {
-
-  groups: Array<Group> = [];
+  @Input()
+  groups: Array<Group>;
 
   constructor() { }
 

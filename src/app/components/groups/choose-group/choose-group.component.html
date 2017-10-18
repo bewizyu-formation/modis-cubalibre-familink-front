@@ -1,5 +1,7 @@
+<app-header></app-header>
 <div class="container">
   <div class="group">
+    <h4>Mon groupe</h4>
     <app-create-group *ngIf="!myGroup" (createGroupEvent)="createGroup($event)"></app-create-group>
     <app-group *ngIf="myGroup" [group]="myGroup"></app-group>
     <app-list-group [groups]="groups"></app-list-group>

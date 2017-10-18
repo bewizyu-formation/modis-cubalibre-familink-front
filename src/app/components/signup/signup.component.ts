@@ -1,14 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
-import { PWD_VALIDATOR } from '../../validators/passwordValidator';
-import { GRAVATAR_VALIDATOR } from '../../validators/gravatarValidator';
-import { Md5 } from 'ts-md5/dist/md5';
-import { EMAIL_VALIDATOR } from '../../validators/emailValidator';
-import { Router } from '@angular/router';
-import { Contact } from '../../models/Contact';
-import { User } from '../../models/User';
-import { SignupService } from '../../services/business/signup.service';
-import { Profil } from '../../models/Profil';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {PWD_VALIDATOR} from '../../validators/passwordValidator';
+import {GRAVATAR_VALIDATOR} from '../../validators/gravatarValidator';
+import {Md5} from 'ts-md5/dist/md5';
+import {EMAIL_VALIDATOR} from '../../validators/emailValidator';
+import {Router} from '@angular/router';
+import {User} from '../../models/User';
+import {SignupService} from '../../services/business/signup.service';
 
 
 @Component({
@@ -69,7 +67,7 @@ export class SignupComponent implements OnInit {
   createUser() {
     this.service.createContact(this.userForm.value.firstName,this.userForm.value.name,{ id:parseInt(this.userForm.value.profil,0) },this.userForm.value.phone).then(contact => {
       this.service.createUser(this.userForm.value.email,Md5.hashStr(this.userForm.value.password).toString(),contact).then(user=>{
-        console.log(user);
+        this.router.navigate(['']);
       })
     });
   }
@@ -77,9 +75,6 @@ export class SignupComponent implements OnInit {
   /* **************************** NGONINIT *********************/
 
   ngOnInit() {
-    this.router.events.subscribe((event) => {
-      console.log('EVENTS', event);
-    });
   }
 
   /* *************************** MESSAGE D'ERREURS ********************/

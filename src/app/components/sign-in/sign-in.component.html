@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="container">
   <div class="login">
     <div class="login__form">
@@ -9,12 +10,13 @@
       </div>
       <div>
         <mat-form-field>
-          <input matInput type="password" placeholder="Password" [formControl]="passwordCtrl" required>
+          <input matInput type="password" placeholder="Password" [formControl]="passwordCtrl"
+                 (keydown)="keyEvent($event)" required>
           <mat-error *ngIf="passwordCtrl.invalid">{{getPassErrorMessage()}}</mat-error>
         </mat-form-field>
       </div>
       <div>
-        <a href="#">Créer un compte</a>
+        <a (click)="toSignup()">Créer un compte</a>
         | <a href="#"> Mot de passe oublié</a>
       </div>
       <div class="login__button">
@@ -23,5 +25,4 @@
       </div>
     </div>
   </div>
-
-
+</div>

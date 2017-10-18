@@ -1,8 +1,9 @@
+<app-header></app-header>
 <div class="container">
 
   <div class="form">
     <h1 class="form__title">créer un utilisateur</h1>
-    <form class="form__user"  [formGroup]="userForm">
+    <form class="form__user" [formGroup]="userForm">
       <mat-form-field class="form__user--width">
         <input matInput placeholder="Inserez votre email" formControlName="email" required>
         <mat-error *ngIf="userForm.get('email').invalid">{{getEmailErrorMessage()}}</mat-error>
@@ -34,13 +35,13 @@
         <tr>
           <td>
             <mat-form-field class="form__user--width">
-              <input matInput placeholder="Nom"  formControlName="name" name="name" required>
+              <input matInput placeholder="Nom" formControlName="name" name="name" required>
               <mat-error *ngIf="userForm.get('name').invalid">{{getNameErrorMessage()}}</mat-error>
             </mat-form-field>
           </td>
           <td>
             <mat-form-field class="form__user--width">
-              <input matInput placeholder="Prénom"  formControlName="firstName" name="firstName" required>
+              <input matInput placeholder="Prénom" formControlName="firstName" name="firstName" required>
               <mat-error *ngIf="userForm.get('firstName').invalid">{{getFirstNameErrorMessage()}}</mat-error>
             </mat-form-field>
           </td>
@@ -51,13 +52,13 @@
         <tr>
           <td>
             <mat-form-field>
-              <input matInput placeholder="Gravatar"  formControlName="gravatar"/>
+              <input matInput placeholder="Gravatar" formControlName="gravatar"/>
               <mat-error *ngIf="userForm.get('gravatar').invalid">{{ getGravatarErrorMessage() }}</mat-error>
             </mat-form-field>
           </td>
           <td>
             <mat-form-field class="form__user--width">
-              <input type="tel" matInput placeholder="Téléphone"  formControlName="phone" required>
+              <input type="tel" matInput placeholder="Téléphone" formControlName="phone" required>
               <mat-icon matSuffix>phone</mat-icon>
               <mat-error *ngIf="userForm.get('phone').invalid">{{getPhoneErrorMessage()}}</mat-error>
             </mat-form-field>
@@ -84,12 +85,12 @@
         <tr>
           <td>
             <mat-form-field class="form__user--width" >
-              <input matInput placeholder="Ville"  formControlName="city">
+              <input matInput placeholder="Ville" formControlName="city">
             </mat-form-field>
           </td>
           <td>
             <mat-form-field class="form__user--width">
-              <input matInput #postalCode maxlength="5" placeholder="Code Postal"  formControlName="zipcode">
+              <input matInput #postalCode maxlength="5" placeholder="Code Postal" formControlName="zipcode">
               <mat-hint align="end">{{postalCode.value.length}} / {{postalCode.maxLength}}</mat-hint>
             </mat-form-field>
           </td>
