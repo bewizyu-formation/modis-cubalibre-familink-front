@@ -7,7 +7,8 @@
 <br>
 
 <mat-form-field>
-  <input matInput type="password" placeholder="Password" [formControl]="passwordCtrl" required>
+  <input matInput type="password" placeholder="Password" [formControl]="passwordCtrl" (keydown)="keyEvent($event)"
+         required>
   <mat-error *ngIf="passwordCtrl.invalid">{{getPassErrorMessage()}}</mat-error>
 </mat-form-field>
 
