@@ -26,3 +26,6 @@ a:focus, a:hover {
   color: #3F51B5;
   text-decoration: underline;
 }
+.login__button{
+  margin-top: 15px;
+}

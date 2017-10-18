@@ -1,27 +1,27 @@
 <div class="container">
   <div class="login">
     <div class="login__form">
-    <mat-form-field>
-      <input matInput placeholder="Email" [formControl]="emailCtrl" required>
-      <mat-error *ngIf="emailCtrl.invalid">{{getEmailErrorMessage()}}</mat-error>
-
-    </mat-form-field>
-
-    <br>
-
-    <mat-form-field>
-      <input matInput type="password" placeholder="Password" [formControl]="passwordCtrl" required>
-      <mat-error *ngIf="passwordCtrl.invalid">{{getPassErrorMessage()}}</mat-error>
-    </mat-form-field>
-
-    <div>
-       <a href="#">Créer un compte</a>
-       | <a href="#"> Mot de passe oublié</a>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Email" [formControl]="emailCtrl" required>
+          <mat-error *ngIf="emailCtrl.invalid">{{getEmailErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password" [formControl]="passwordCtrl" required>
+          <mat-error *ngIf="passwordCtrl.invalid">{{getPassErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <a href="#">Créer un compte</a>
+        | <a href="#"> Mot de passe oublié</a>
+      </div>
+      <div class="login__button">
+        <button mat-button [(disabled)]="emailCtrl.invalid && passwordCtrl.invalid" (click)="connect()"> Valider
+        </button>
+      </div>
     </div>
-
-    <br>
-
-    <button mat-button [(disabled)]="emailCtrl.invalid && passwordCtrl.invalid" (click)="connect()"> Valider</button>
   </div>
 </div>
 
