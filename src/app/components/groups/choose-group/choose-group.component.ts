@@ -16,8 +16,6 @@ export class ChooseGroupComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.groups =
-    // this.myGroup  = this.grou
   }
 
   createGroup(group) {

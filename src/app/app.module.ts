@@ -36,6 +36,11 @@ import { GroupComponent } from './components/groups/group/group.component';
 
 import { GroupApiService } from './services/api/group-api.service';
 import { GroupBusinessService } from './services/business/group-business.service';
+import { ListContactsComponent } from './components/contacts/list-contacts/list-contacts.component';
+import { ContactsComponent } from './components/contacts/contacts/contacts.component';
+import { CreateContactComponent } from './components/contacts/create-contact/create-contact.component';
+import { ContactsBusinessService } from './services/business/contacts-business.service';
+import { ContactsApiService } from './services/api/contacts-api.service';
 
 @NgModule({
   declarations: [
@@ -48,6 +53,9 @@ import { GroupBusinessService } from './services/business/group-business.service
     CreateGroupComponent,
     ListGroupComponent,
     GroupComponent,
+    ListContactsComponent,
+    ContactsComponent,
+    CreateContactComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +75,7 @@ import { GroupBusinessService } from './services/business/group-business.service
     MatCardModule,
   ],
   providers: [SigninApiService, SigninService, GroupApiService,
-    GroupBusinessService,SignupService,SignupApiService],
+    GroupBusinessService,SignupService,SignupApiService, ContactsBusinessService, ContactsApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {

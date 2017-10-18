@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Group } from '../../../models/Group';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-group',
@@ -14,12 +15,12 @@ export class GroupComponent implements OnInit {
   @Output()
   groupSelected: EventEmitter<Group> = new EventEmitter<Group>();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  selectGroup() {
-    this.groupSelected.emit(this.group);
+  navigateToContacts() {
+      this.router.navigate(['contacts']);
   }
 }

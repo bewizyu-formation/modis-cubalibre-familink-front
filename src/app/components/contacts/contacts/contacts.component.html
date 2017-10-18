@@ -1,0 +1,11 @@
+<div *ngIf="contacts.length >0; else noContact">
+    <app-list-contacts [contacts]="contacts"></app-list-contacts>
+</div>
+
+<ng-template #noContact>
+  <p> Vous n'avez aucun contact !! </p>
+  <button mat-button (click)="navigateToCreateContact()"> + </button>
+</ng-template>
+
+
+

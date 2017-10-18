@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { GroupApiService } from '../api/group-api.service';
 import { Group } from '../../models/Group';
+import {reject} from "q";
 
 @Injectable()
 export class GroupBusinessService {
@@ -28,4 +29,20 @@ export class GroupBusinessService {
     );
   }
 
+  getOwnerGroups():  Promise <Array <Group> >  {
+    return new Promise(resolve => {
+      this.groupApiService.getOwnerGroups()
+        .then(
+          (apiGroups) => {
+            this.groups = [...apiGroups];
+            resolve ( this.groups );
+          }
+        )
+        .catch(
+          (message) => {
+            reject ('SERVICE - Impossible to GET groups !!');
+          },
+        );
+    });
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Group } from '../../../models/Group';
+import {GroupBusinessService} from "../../../services/business/group-business.service";
 
 @Component({
   selector: 'app-list-group',
@@ -10,14 +11,13 @@ export class ListGroupComponent implements OnInit {
 
   groups: Array<Group> = [];
 
-  constructor() { }
+  constructor( private businessService: GroupBusinessService) { }
 
   ngOnInit() {
-    this.groups = [
-      new Group('Group 1', null),
-      new Group('Group 2', null),
-      new Group('Group 3', null),
-    ];
+    this.businessService.getOwnerGroups()
+      .then(
+        (businessGroups) => { this.groups = businessGroups; }
+      );
   }
 
   handleGroupSelected(group): void {
