@@ -1,7 +1,7 @@
-<app-create-group *ngIf="!myGroup" (createGroupEvent)="createGroup($event)"></app-create-group>
-<app-group *ngIf="myGroup" [group]="myGroup"></app-group>
-
-<br>
-
-<app-list-group></app-list-group>
-
+<div class="container">
+  <div class="group">
+    <app-create-group *ngIf="!myGroup" (createGroupEvent)="createGroup($event)"></app-create-group>
+    <app-group *ngIf="myGroup" [group]="myGroup"></app-group>
+    <app-list-group [groups]="groups"></app-list-group>
+  </div>
+</div>
